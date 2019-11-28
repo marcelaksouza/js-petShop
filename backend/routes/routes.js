@@ -62,8 +62,9 @@ router.put('/:id', m.mustBeInteger, m.checkFieldsPost, async (req, res) => {
 
 //delete delete
 router.delete('/:id', m.mustBeInteger, async (req, res) => {
+    //get the id from the request parameters 
     const id = req.params.id
-
+    //use the helper delete pet
     await helper.deletePet(id)
     .then(pet => res.json({
         message: `The pet #${id} has been removed`

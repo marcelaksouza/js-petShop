@@ -81,10 +81,10 @@ function updatePet(id, newPet) {
 
 function deletePet(id) {
     return new Promise((resolve, reject) => {
+        //if the id contains into the array
         mustBeInTheArray(petsData, id)
         .then(() => {
-            //console.log(petsData);
-            console.log("_id "+id)
+            //return the array without the id
             data = petsData.filter(p => p.id !== id);
             console.log(data);
             writeJSONFile(filePath, data)
