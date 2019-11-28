@@ -1,0 +1,62 @@
+.banner {
+  height: 300px;
+  width: 100%;
+  background-image: url("../images/banner.jpg");
+  background-size: cover;
+}
+
+.jumbotron h1 {
+  text-align: center;
+  font-family: Lucida;
+  color: black;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.jumbotron{
+  font-family: Lucida;
+  text-align: center;
+}
+
+#allpets {
+  margin-left: 25%;
+}
+
+#allpets table {
+  border-collapse: collapse;
+
+}
+#allpets th{
+  background-color: orange;
+}
+
+#allpets table, th, td{
+  border: 1px solid black;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: rgb(151, 61, 9);
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: rgb(255, 136, 0);
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: rgb(255, 136, 0);
+  color: white;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "petshop",
+  "version": "1.0.0",
+  "description": "petshop CA",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node_modules/.bin/nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marcela",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5"
+  }
+}

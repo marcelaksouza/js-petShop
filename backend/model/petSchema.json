@@ -1,0 +1,33 @@
+{
+    "id": {
+        "type": "integer"
+    },
+    "Name": {
+        "type": "String"
+    },
+    "Age": {
+        "type": "String"
+    },
+    "Group": {
+        "type": "String",
+        "enum": ["mammal","bird","fish","reptiles","Amphibians","Arthropods"]
+    },
+    "type":{
+        "type": "String",
+    },
+    "Description":{
+        "type": "String"
+    },
+    "Adopted":{
+        "type": "boolean",
+        "default" : "False"
+    },
+    "Owner":[{
+        "Name": {
+            "type": "String"
+        },
+        "Address":{
+            "type": "String"
+        }
+    }]
+}
