@@ -10,7 +10,10 @@ function mustBeInteger(req, res, next) {
 
 function checkFieldsPost(req, res, next) {
     const { name, age, group, type, description } = req.body
+    console.log(req.body);
+    console.log(name && age && group && type && description);
     if (name && age && group && type && description) {
+
         next()
     } else {
         res.status(400).json({ message: 'fields are not good' })

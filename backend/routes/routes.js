@@ -1,14 +1,23 @@
 const express = require('express');
 const helper = require('../helpers/helper')
 const router = express.Router();
-const fs = require('fs');
-const dataPath = './model/data.json';
 const m = require('../helpers/middlewares')
+const path = require('path')
+const fs = require('fs');
+router.use(express.static(path.join(__dirname, '../../frontend')));
 
 
+//load index
+router.get('/', async (req, res) => { 
+    const index = fs.readFileSync('../frontend/index.html','utf-8');
+    const header = {
+         'Content-Type':'text.html'
+    }
+    res.writeHead(200, header).send(index).end()
+});
 
 //get all
-router.get('/', async (req, res) => {
+router.get('/api/', async (req, res) => {
     await helper.getPets()
     .then(pets => res.json(pets))
     .catch(err => {
@@ -20,7 +29,7 @@ router.get('/', async (req, res) => {
     })
 });
 //get one
-router.get('/:id', m.mustBeInteger, async (req, res) => {
+router.get('/api/:id', m.mustBeInteger, async (req, res) => {
     const id = req.params.id
     await helper.getPet(id)
     .then(pets => res.json(pets))
@@ -34,7 +43,7 @@ router.get('/:id', m.mustBeInteger, async (req, res) => {
 })
 
 //post create
-router.post('/', m.checkFieldsPost, async (req, res) => {
+router.post('/api/', m.checkFieldsPost, async (req, res) => {
     await helper.insertPost(req.body)
     .then(pet => res.status(201).json({
         message: `The pet #${pet.id} has been sucefully saved`,
@@ -43,9 +52,12 @@ router.post('/', m.checkFieldsPost, async (req, res) => {
     .catch(err => res.status(500).json({ message: err.message }))
 })
 
+router.post('/api', (req, res) =>{
+    console.log(req.body);
+})
 
 //put update
-router.put('/:id', m.mustBeInteger, m.checkFieldsPost, async (req, res) => {
+router.put('/api/:id', m.mustBeInteger, m.checkFieldsPost, async (req, res) => {
     const id = req.params.id
     await helper.updatePet(id, req.body)
     .then(pets => res.json({
@@ -61,7 +73,7 @@ router.put('/:id', m.mustBeInteger, m.checkFieldsPost, async (req, res) => {
 })
 
 //delete delete
-router.delete('/:id', m.mustBeInteger, async (req, res) => {
+router.delete('/api/:id', m.mustBeInteger, async (req, res) => {
     //get the id from the request parameters 
     const id = req.params.id
     //use the helper delete pet

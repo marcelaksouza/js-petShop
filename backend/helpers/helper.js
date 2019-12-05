@@ -83,22 +83,36 @@ function deletePet(id) {
     return new Promise((resolve, reject) => {
         //if the id contains into the array
         mustBeInTheArray(petsData, id)
-        .then(() => {
+        .then( async () =>{
             //return the array without the id
-            data = petsData.filter(p => p.id !== id);
-            console.log(data);
-            writeJSONFile(filePath, data)
+            
+            //const filtredData = petsData.filter((p) => p.id !== id);
+            console.log(typeof(id))
+
+            const filtredData = await petsData.filter(p => p.id != id)
+            //console.log(filtredData)
+            writeJSONFile(filePath, filtredData)
             resolve()
         })
         .catch(err => reject(err))
     })
 }
+function showIndex() {
+const showIndex = (req, res) =>{
+    const index = fs.readFileSync('../frontend/index.html','utf-8');
+    const header = {
+        'Content-Type':'text.html'
+    }
+    res.writeHead(200, header);
+    res.end(index);
+}}
 
 module.exports = {
     getNewId,
     newDate,
     mustBeInTheArray,
-    writeJSONFile
+    writeJSONFile,
+    showIndex
 }
 
 module.exports = {
