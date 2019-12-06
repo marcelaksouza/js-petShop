@@ -52,9 +52,6 @@ router.post('/api/', m.checkFieldsPost, async (req, res) => {
     .catch(err => res.status(500).json({ message: err.message }))
 })
 
-router.post('/api', (req, res) =>{
-    console.log(req.body);
-})
 
 //put update
 router.put('/api/:id', m.mustBeInteger, m.checkFieldsPost, async (req, res) => {

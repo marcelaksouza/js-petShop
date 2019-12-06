@@ -84,13 +84,7 @@ function deletePet(id) {
         //if the id contains into the array
         mustBeInTheArray(petsData, id)
         .then( async () =>{
-            //return the array without the id
-            
-            //const filtredData = petsData.filter((p) => p.id !== id);
-            console.log(typeof(id))
-
             const filtredData = await petsData.filter(p => p.id != id)
-            //console.log(filtredData)
             writeJSONFile(filePath, filtredData)
             resolve()
         })
