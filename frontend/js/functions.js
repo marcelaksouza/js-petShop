@@ -45,12 +45,10 @@
         table+="</table>";
         document.getElementById("allpets").innerHTML = table;
     }
-    //else{
-
-   //     document.getElementById("allpets").innerHTML = "<p>Pets file is empety, please enter a new pet in the form</p>";
-
-     //   console.log("Pets file is empety")
-   // }
+    else{
+     document.getElementById("allpets").innerHTML = "<p>Pets file is empety, please enter a new pet in the form</p>";
+        console.log("Pets file is empety")
+    }
 }
 
  

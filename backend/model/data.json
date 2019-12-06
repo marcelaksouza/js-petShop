@@ -57,10 +57,34 @@
   },
   {
     "id": 10,
-    "name": "new",
-    "age": "9",
-    "description": "sght",
+    "name": "davi",
+    "age": "7",
+    "description": "oi davi",
     "group": "Mammals",
-    "type": "cat"
+    "type": "cockatiel"
+  },
+  {
+    "id": 11,
+    "name": "davi",
+    "age": "7",
+    "description": "oi davi",
+    "group": "Mammals",
+    "type": "cockatiel"
+  },
+  {
+    "id": 12,
+    "name": "davi",
+    "age": "7",
+    "description": "oi davi",
+    "group": "Mammals",
+    "type": "cockatiel"
+  },
+  {
+    "id": 13,
+    "name": "davi",
+    "age": "7",
+    "description": "oi davi",
+    "group": "Mammals",
+    "type": "cockatiel"
   }
 ]
