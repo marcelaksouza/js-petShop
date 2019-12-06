@@ -40,14 +40,6 @@
     "description": "tempero is blablabla"
   },
   {
-    "id": 7,
-    "name": "hfhd",
-    "age": "8",
-    "description": "yudtku",
-    "group": "Mammals",
-    "type": "cat"
-  },
-  {
     "id": 8,
     "name": "hfhd",
     "age": "8",
@@ -70,45 +62,5 @@
     "description": "sght",
     "group": "Mammals",
     "type": "cat"
-  },
-  {
-    "id": 11,
-    "name": "new",
-    "age": "9",
-    "description": "sght",
-    "group": "Mammals",
-    "type": "cat"
-  },
-  {
-    "id": 12,
-    "name": "next",
-    "age": "8",
-    "description": "gdyjndty",
-    "group": "Mammals",
-    "type": "cat"
-  },
-  {
-    "id": 13,
-    "name": "novo pet",
-    "age": "9",
-    "description": "vshttddy",
-    "group": "Mammals",
-    "type": "dog"
-  },
-  {
-    "id": 14,
-    "name": "novo pet",
-    "age": "8",
-    "description": "sbsthsbh",
-    "group": "Mammals",
-    "type": "goldfish"
-  },
-  {
-    "id": 15,
-    "name": "novo 1",
-    "age": "8",
-    "description": "rtjs6",
-    "group": "Reptiles",
-    "type": "turtle"
   }
 ]

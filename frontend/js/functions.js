@@ -5,12 +5,12 @@
     .then(res => res.json())
     .then(res => {
     state.pets = res;
-    callbackData();
+    callbackData(state.pets);
     });
  }
 
  const callbackData = () => {
-    if (state.pets.lenght >= 1){
+    if (state.pets.length >= 1){
         const pets = [...state.pets]
         var table = '<table class="table">';
         table+='<thead>';
@@ -44,12 +44,13 @@
     
         table+="</table>";
         document.getElementById("allpets").innerHTML = table;
-    }else{
-
-        document.getElementById("allpets").innerHTML = "<p>Pets file is empety, please enter a new pet in the form</p>";
-
-        console.log("Pets file is empety")
     }
+    //else{
+
+   //     document.getElementById("allpets").innerHTML = "<p>Pets file is empety, please enter a new pet in the form</p>";
+
+     //   console.log("Pets file is empety")
+   // }
 }
 
  
@@ -67,8 +68,6 @@ const deletespet = (id) =>{
     fetch('http://localhost:3000/api/'+id, options)
         .then(res => {
             if (res.ok) {
-                console.log(res)
-                console.log(state.pets)
                 alert('pet deleted.');
                 return Promise.resolve('pet deleted.');
             } else {
@@ -76,10 +75,7 @@ const deletespet = (id) =>{
             }
         })
         .then(res =>{ 
-            getAll();
-            
-            //location.reload();
-            
+            getAll();    
         });
  }
  
