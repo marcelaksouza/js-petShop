@@ -1,3 +1,5 @@
+//reference https://github.com/EtienneR/api_express_no_db/blob/master/helpers/middlewares.js
+//reference https://github.com/bpk68/api-server-starter
 function mustBeInteger(req, res, next) {
     const id = req.params.id
 

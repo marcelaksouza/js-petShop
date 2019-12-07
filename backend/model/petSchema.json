@@ -10,10 +10,10 @@
     },
     "Group": {
         "type": "String",
-        "enum": ["mammal","bird","fish","reptiles","Amphibians","Arthropods"]
+        "enum": ["mammal","bird","fish","reptiles"]
     },
     "type":{
-        "type": "String",
+        "type": "String"
     },
     "Description":{
         "type": "String"
