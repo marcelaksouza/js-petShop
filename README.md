@@ -12,34 +12,6 @@ Project outline
 My interactive web application is a pet adoption center called  Pet’s World Adoption Center. The application was developed targeted the staff of Pet’s World Adoption Center, it has the functionality of include a new pet, read, edit the pet information and/or delete a pet. All those functionalities sent an API request to the server which manipulates the JSON file accordingly. The application will also dynamically allocated new ids to the new entries.
 Application is using HTML, CSS, JavaScript for the frontend and Node.js with Express.js along with other packages for the backend. 
 
-
-Files structure
-Ca
-/backend
-	/helpers
-		--helper.js
-		--middlewares.js
-	/models
-		--data.json
-		--petSchema.json
-	/node_modules
-	/routes
-	--app.js
-	--package-lock.json
-	--package.json
-/frontend
-	/css
-		--styles.css
-	/images
-		--banner.jpg
-	/js
-		--functions.js
-		--state.js
-	/shared
-		--footer.html
-		--header.html
-	--adoptionform.html
-	--index.html
 	
 Sanitation and Validation
 I am using the module express-autosanitizer to sanitize the inputs.
