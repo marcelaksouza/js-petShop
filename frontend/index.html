@@ -70,7 +70,7 @@
                     <option value="cockatiel" >Cockatiel</option>
                 </select>
             <br><br>
-            <buttom value="Submit" id="buttomform" class="btn btn-primary">Submitt</buttom>
+            <buttom value="Submit" id="buttomform" class="btn btn-primary" onclick="createpet()" >Submitt</buttom>
             </div>
         </form> 
     </div>
@@ -85,29 +85,7 @@
 </div>
  
 <script> 
-        //add new pet form
-        const postrequest =document.querySelector('#buttomform');
-        postrequest.addEventListener('click', ()=>{
-            let body = {
-            name: document.querySelector('#petname').value,
-            age:  document.querySelector('#age').value,
-            description: document.querySelector('#description').value,
-            group: document.querySelector('#animalclass').value,
-            type: document.querySelector('#animaltype').value,
-        }
-        const options = {
-        method: 'POST',
-        body: JSON.stringify(body), 
-        headers: {
-            'Content-Type': 'application/json'
-            }
-        }
-        fetch('http://localhost:3000/api', options)
-        .then(res => res.json())
-        .then(res => {
-            getAll();
-            console.log(res)});
-    });
+        
   
 
 

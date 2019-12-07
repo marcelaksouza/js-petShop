@@ -31,14 +31,16 @@
         
         table+="<tr>";
         table+='<td scope="row">'+pets[i].id+'</td>';
-        table+="<td>"+pets[i].name+"</td>";
-        table+="<td>"+pets[i].age+"</td>";
-        table+="<td>"+pets[i].group+"</td>";
-        table+="<td>"+pets[i].type+"</td>";
-        table+="<td>"+pets[i].description+"</td>";
-        table+='<td><buttom value="Submit" class="btn btn-warning">Edit</buttom></td>';
+        table+=`<td contenteditable="true" id="petname${pets[i].id}">`+pets[i].name+ `</td>`;
+        table+=`<td contenteditable="true" id="age${pets[i].id}">`+pets[i].age+`</td>`;
+        table+=`<td contenteditable="true" id="animalClass${pets[i].id}">`+pets[i].group+`</td>`;
+        table+=`<td contenteditable="true" id="animalType${pets[i].id}">`+pets[i].type+`</td>`;
+        table+=`<td contenteditable="true" id="description${pets[i].id}">`+pets[i].description+`</td>`;
+        table+=`<td><buttom value="Submit" class="btn btn-warning" 
+        onclick='updatepet("${pets[i].id}","petname${pets[i].id}","age${pets[i].id}","animalClass${pets[i].id}","animalType${pets[i].id}","description${pets[i].id}" )'>
+        Edit</buttom></td>`;
         table+='<td><buttom value="Submit" class="btn btn-success">Adopt</buttom></td>';
-        table+=`<td><buttom value="Submit" class="btn btn-danger" onclick='deletespet("${pets[i].id}")'>Delete</buttom></td>`;
+        table+=`<td><buttom value="Submit" class="btn btn-danger" onclick='deletepet("${pets[i].id}")'>Delete</buttom></td>`;
         table+="</tr>";
         }
     
@@ -51,32 +53,78 @@
     }
 }
 
- 
-
  //delete a pet
-const deletespet = (id) =>{
-    
+const deletepet = async (id) =>{
     const options = {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
         }
     }
-    
-    fetch('http://localhost:3000/api/'+id, options)
-        .then(res => {
+    const data = await fetch('http://localhost:3000/api/'+id, options)
+        .then(res =>  {
             if (res.ok) {
-                alert('pet deleted.');
                 return Promise.resolve('pet deleted.');
             } else {
                 return Promise.reject('An error occurred.');
             }
         })
-        .then(res =>{ 
+        .catch()
+            alert('pet deleted.');
             getAll();    
-        });
  }
- 
+
+//update pets info
+const updatepet = (id,petname,age,animalClass,animalType,description) => {
+   let body ={
+    name: document.getElementById(petname).innerText,
+    age:  document.getElementById(age).innerText,
+    description: document.getElementById(description).innerText,
+    group: document.getElementById(animalClass).innerText,
+    type: document.getElementById(animalType).innerText,
+   }
+    
+    const options = {
+        method: 'PUT',
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    fetch('http://localhost:3000/api/'+id, options)
+        .then(res => {
+            res.json()})
+        .then(res => {
+            //alert("information was updated sussefully");
+            getAll();
+            });
+};
+
+//add new pet form
+const createpet = () => {
+
+    let body = {
+    name: document.querySelector('#petname').value,
+    age:  document.querySelector('#age').value,
+    description: document.querySelector('#description').value,
+    group: document.querySelector('#animalclass').value,
+    type: document.querySelector('#animaltype').value,
+}
+    const options = {
+    method: 'POST',
+    body: JSON.stringify(body), 
+    headers: {
+        'Content-Type': 'application/json'
+        }
+    }
+    fetch('http://localhost:3000/api', options)
+    .then(res => res.json())
+    .then(res => {
+        getAll();
+        console.log(res)});
+    };
+
 
  getAll();
  

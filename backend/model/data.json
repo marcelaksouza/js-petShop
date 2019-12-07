@@ -3,88 +3,48 @@
     "id": 2,
     "name": "Olivia",
     "age": "2 months",
+    "description": "Olivia did not destroy her moms Christmas tree yet ",
     "group": "mammal",
-    "type": "cat",
-    "description": "Olivia didnt destry her christimas tree yet"
+    "type": "cat"
   },
   {
     "id": 3,
-    "name": "Olivia",
-    "age": "2 months",
+    "name": "Charle",
+    "age": "1 year old",
+    "description": "Charlinho is cute most of the time, but never pets his belly.. NEVER!!",
     "group": "mammal",
-    "type": "cat",
-    "description": "Olivia didnt destry her christimas tree yet"
+    "type": "cat"
   },
   {
     "id": 4,
-    "name": "tempero",
-    "age": "2 months",
+    "name": "Amarela",
+    "age": "8 years old",
+    "description": "Is the most amazing cate that I ever had",
     "group": "mammal",
-    "type": "cat",
-    "description": "tempero is blablabla"
+    "type": "cat"
   },
   {
     "id": 5,
-    "name": "tempero2",
-    "age": "2 months",
+    "name": "Salém",
+    "age": "8 months old",
+    "description": "Salem is getting big and is scared of anything but especially of the noise of plastic bags ",
     "group": "mammal",
-    "type": "cat",
-    "description": "tempero is blablabla"
-  },
-  {
-    "id": 6,
-    "name": "tempero3",
-    "age": "2 months",
-    "group": "mammal",
-    "type": "cat",
-    "description": "tempero is blablabla"
-  },
-  {
-    "id": 8,
-    "name": "hfhd",
-    "age": "8",
-    "description": "yudtku",
-    "group": "Mammals",
     "type": "cat"
-  },
-  {
-    "id": 9,
-    "name": "hfhd",
-    "age": "8",
-    "description": "yudtku",
-    "group": "Mammals",
-    "type": "cat"
-  },
-  {
-    "id": 10,
-    "name": "davi",
-    "age": "7",
-    "description": "oi davi",
-    "group": "Mammals",
-    "type": "cockatiel"
   },
   {
     "id": 11,
-    "name": "davi",
+    "name": "Aninha",
     "age": "7",
-    "description": "oi davi",
-    "group": "Mammals",
+    "description": "Is a cute cockatiel ",
+    "group": "Birds",
     "type": "cockatiel"
   },
   {
     "id": 12,
-    "name": "davi",
-    "age": "7",
-    "description": "oi davi",
+    "name": "Coli",
+    "age": "9 years old",
+    "description": "Coli is a very playfull dog",
     "group": "Mammals",
-    "type": "cockatiel"
-  },
-  {
-    "id": 13,
-    "name": "davi",
-    "age": "7",
-    "description": "oi davi",
-    "group": "Mammals",
-    "type": "cockatiel"
+    "type": "dog"
   }
 ]
