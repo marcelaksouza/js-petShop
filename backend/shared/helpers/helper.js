@@ -2,7 +2,7 @@
 //reference https://github.com/bpk68/api-server-starter
 const fs = require('fs')
 const filePath = './model/data.json';
-let petsData = require ('../model/data.json');
+let petsData = require ('../../model/data.json');
 
 
 const getNewId = (array) => {

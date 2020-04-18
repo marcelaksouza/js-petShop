@@ -1,1 +1,5 @@
+#secret files
+.env
+
+#package
 node_modules
