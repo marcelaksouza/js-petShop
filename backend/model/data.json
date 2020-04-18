@@ -46,5 +46,13 @@
     "description": "Coli is a very playfull dog",
     "group": "Mammals",
     "type": "dog"
+  },
+  {
+    "id": 13,
+    "name": "Tiarnan",
+    "age": "25 years old",
+    "description": "he is a cow",
+    "group": "Mammals",
+    "type": "goldfish"
   }
 ]

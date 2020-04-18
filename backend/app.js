@@ -1,4 +1,5 @@
-const http = require('http'); 
+require('dotenv').config()
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -8,10 +9,11 @@ const expAutoSan = require('express-autosanitizer');
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expAutoSan.allUnsafe);
 app.use(require('./routes/routes.js'));
 
-const server = app.listen(3000, function(){
+const server = app.listen(process.env.PORT || 3000, function(){
     console.log("listening to port %s", server.address().port)
 });
