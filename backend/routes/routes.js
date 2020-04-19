@@ -2,9 +2,22 @@
 //reference https://github.com/bpk68/api-server-starter
 const express = require('express');
 const router = express.Router();
-const adoptionController = require('../service/adoptionController');
+const petController = require('../service/petController');
 require('../shared/db');
 
+router
+.route("/pets")
+.get(petController.getAllPets);
+
+router
+.route("/pet")
+.post(petController.createPet);
+
+router
+.route("/pet/petId")
+.get(petController.getOnePet)
+.put(petController.getOnePet)
+.delete(petController.deletePet);
 
 
 module.exports = router;
