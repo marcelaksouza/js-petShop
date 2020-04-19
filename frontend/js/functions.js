@@ -1,3 +1,53 @@
+//create function
+let createButton = document.getElementById('createPetButton');
+createButton.addEventListener("click", evt => {
+
+    let body = {
+    name: document.querySelector('#petname').value,
+    age:  document.querySelector('#age').value,
+    description: document.querySelector('#description').value,
+    group: document.querySelector('#animalclass').value,
+    type: document.querySelector('#animaltype').value,
+    }
+
+    console.log(body);
+    const options = {
+    method: 'POST',
+    body: JSON.stringify(body), 
+    headers: {
+        'Content-Type': 'application/json'
+        }
+    }
+
+    fetch('http://localhost:3000/pet', options)
+    .then(res => res.json())
+    .then(res => {
+        getAll();
+        console.log(res)});
+});
+
+//delete a pet
+const deletepet = async (_id) =>{
+    console.log(_id)
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    const data = await fetch('http://localhost:3000/pet/'+_id, options)
+        .then(res =>  {
+            if (res.ok) {
+                return Promise.resolve('pet deleted.');
+            } else {
+                return Promise.reject('An error occurred.');
+            }
+        })
+        .catch()
+            alert('pet deleted.');
+            getAll();    
+ }
+
 let pets = [];
  const getAll = () => {
     console.log("caling get all")
@@ -35,10 +85,10 @@ let pets = [];
         table+=`<td contenteditable="true" id="animalType${pets[i]._id}">`+pets[i].type+`</td>`;
         table+=`<td contenteditable="true" id="description${pets[i]._id}">`+pets[i].description+`</td>`;
         table+=`<td><buttom value="Submit" class="btn btn-warning" 
-        onclick='updatepet("${pets[i]._id}","petname${pets[i]._id}","age${pets[i]._id}","animalClass${pets[i].id}","animalType${pets[i]._id}","description${pets[i]._id}" )'>
+        onclick='updatepet("${pets[i]._id}","petname${pets[i]._id}","age${pets[i]._id}","animalClass${pets[i]._id}","animalType${pets[i]._id}","description${pets[i]._id}" )'>
         Edit</buttom></td>`;
         table+='<td><buttom value="Submit" class="btn btn-success">Adopt</buttom></td>';
-        table+=`<td><buttom value="Submit" class="btn btn-danger" onclick='deletepet("${pets[i]._id}")'>Delete</buttom></td>`;
+        table+=`<td><buttom value="Submit" id="deletePetButton" class="btn btn-danger" onclick='deletepet("${pets[i]._id}")'>Delete</buttom></td>`;
         table+="</tr>";
         }
     
@@ -51,27 +101,7 @@ let pets = [];
     }
 }
 
- //delete a pet
-const deletepet = async (_id) =>{
-    console.log(_id)
-    const options = {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }
-    const data = await fetch('http://localhost:3000/pet/'+_id, options)
-        .then(res =>  {
-            if (res.ok) {
-                return Promise.resolve('pet deleted.');
-            } else {
-                return Promise.reject('An error occurred.');
-            }
-        })
-        .catch()
-            alert('pet deleted.');
-            getAll();    
- }
+ 
 
 //update pets info
 const updatepet = (id,petname,age,animalClass,animalType,description) => {
@@ -82,7 +112,7 @@ const updatepet = (id,petname,age,animalClass,animalType,description) => {
     group: document.getElementById(animalClass).innerText,
     type: document.getElementById(animalType).innerText,
    }
-    
+    console.log(body)
     const options = {
         method: 'PUT',
         body: JSON.stringify(body),
@@ -99,31 +129,6 @@ const updatepet = (id,petname,age,animalClass,animalType,description) => {
             getAll();
             });
 };
-
-//add new pet form
-const createpet = () => {
-    let body = {
-    name: document.querySelector('#petname').value,
-    age:  document.querySelector('#age').value,
-    description: document.querySelector('#description').value,
-    group: document.querySelector('#animalclass').value,
-    type: document.querySelector('#animaltype').value,
-}
-    console.log(body);
-    const options = {
-    method: 'POST',
-    body: JSON.stringify(body), 
-    headers: {
-        'Content-Type': 'application/json'
-        }
-    }
-    fetch('http://localhost:3000/pet', options)
-    .then(res => res.json())
-    .then(res => {
-        getAll();
-        console.log(res)});
-    };
-
 
  getAll();
  

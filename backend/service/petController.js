@@ -32,7 +32,7 @@ const createPet = (req, res, next) => {
 
   const updatePet = (req, res) => {
     Pet.findOneAndUpdate({_id: req.params.petId},
-        req.body,{new: true},
+        req.body,{new: true, useFindAndModify: false},
         (err, data) => {
           if (err) {
             ResponseHandler.errorHandling(err, res);
@@ -43,8 +43,7 @@ const createPet = (req, res, next) => {
   };
 
   const deletePet = (req, res) => {
-    
-    Pet.deleteOne({ _id: req.params.petId }, (err) => {
+    Pet.deleteOne({ _id: req.params.petId}, (err) => {
      if (err) {
        res.status(404).send(err);
      }
