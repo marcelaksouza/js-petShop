@@ -10,9 +10,7 @@ let pets = [];
  }
 
  const callbackData = () => {
-     console.log(pets);
     if (pets.length >= 1){
-       
         var table = '<table class="table">';
         table+='<thead>';
         table+='<tr>'
@@ -29,7 +27,6 @@ let pets = [];
         table+="</thead>";
 
         for (var i = 0; i < pets.length; i++){
-        
         table+="<tr>";
         table+='<td scope="row">'+pets[i]._id+'</td>';
         table+=`<td contenteditable="true" id="petname${pets[i]._id}">`+pets[i].name+ `</td>`;
@@ -55,14 +52,15 @@ let pets = [];
 }
 
  //delete a pet
-const deletepet = async (id) =>{
+const deletepet = async (_id) =>{
+    console.log(_id)
     const options = {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
         }
     }
-    const data = await fetch('http://localhost:3000/pet/'+id, options)
+    const data = await fetch('http://localhost:3000/pet/'+_id, options)
         .then(res =>  {
             if (res.ok) {
                 return Promise.resolve('pet deleted.');
@@ -104,7 +102,6 @@ const updatepet = (id,petname,age,animalClass,animalType,description) => {
 
 //add new pet form
 const createpet = () => {
-
     let body = {
     name: document.querySelector('#petname').value,
     age:  document.querySelector('#age').value,
@@ -112,6 +109,7 @@ const createpet = () => {
     group: document.querySelector('#animalclass').value,
     type: document.querySelector('#animaltype').value,
 }
+    console.log(body);
     const options = {
     method: 'POST',
     body: JSON.stringify(body), 

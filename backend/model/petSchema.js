@@ -9,7 +9,7 @@ const petSchema = new mongoose.Schema({
     },
     group: {
         type: String,
-        enum: ["mammal","bird","fish","reptiles"]
+        enum: ["mammal","bird","fish","reptile"]
     },
     type:{
         type: String

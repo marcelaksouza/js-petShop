@@ -9,12 +9,13 @@ router
 .route("/pets")
 .get(petController.getAllPets);
 
+
 router
 .route("/pet")
 .post(petController.createPet);
 
 router
-.route("/pet/petId")
+.route("/pet/:petId")
 .get(petController.getOnePet)
 .put(petController.getOnePet)
 .delete(petController.deletePet);

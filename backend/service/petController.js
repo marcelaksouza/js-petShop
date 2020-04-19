@@ -2,7 +2,7 @@ const Pet = require('../model/petSchema');
 const ResponseHandler = require('../shared/helpers/responseHandler');
 
 const getAllPets = (req, res) => {
-    Pet.find({}).populate('instructor student').exec(function (err, data) {
+    Pet.find({}).exec(function (err, data) {
         if (err) {
         ResponseHandler.errorHandling(err, res);
         }
@@ -12,7 +12,9 @@ const getAllPets = (req, res) => {
 
 
 const createPet = (req, res, next) => {
-    Pet.create(req.body)
+  console.log("req.body")
+  console.log(req.body)
+  Pet.create(req.body)
         .then((data) => {
             ResponseHandler.successMessage(data, res);
         })
@@ -41,6 +43,7 @@ const createPet = (req, res, next) => {
   };
 
   const deletePet = (req, res) => {
+    
     Pet.deleteOne({ _id: req.params.petId }, (err) => {
      if (err) {
        res.status(404).send(err);
