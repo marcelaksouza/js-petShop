@@ -1,3 +1,58 @@
+//get all pets save in the pets array
+let pets = [];
+ const getAll = () => {
+    console.log("caling get all")
+    fetch('http://localhost:3000/pets')
+    .then(res => res.json())
+    .then(res => {
+        pets = res;
+    callbackData();
+    });
+ }
+//create the table
+ const callbackData = () => {
+    var table = '<table id="table" class="table">';
+    table+='<thead>';
+    table+='<tr>'
+    table+='<th>Id</th>';
+    table+='<th>Name</th>';
+    table+='<th>Age</th>';
+    table+='<th>Group</th>';
+    table+='<th>Type</th>';
+    table+='<th>Description</th>';
+    table+='<th>Edit</th>';
+    table+='<th>Adopt</th>';
+    table+='<th>Delete</th>';
+    table+="</tr>"
+    table+="</thead>";
+    table+="<tbody>";
+   
+    if (pets.length >= 1){
+        for (var i = 0; i < pets.length; i++){
+        table+=`<tr id="petId${pets[i]._id}">`;
+        table+=`<td scope="row" ><p>`+pets[i]._id+`</p></td>`;
+        table+=`<td contenteditable="true" id="petname${pets[i]._id}"><p>`+pets[i].name+ `</p></td>`;
+        table+=`<td contenteditable="true" id="age${pets[i]._id}"><p>`+pets[i].age+`</p></td>`;
+        table+=`<td contenteditable="true" id="animalClass${pets[i]._id}"><p>`+pets[i].group+`</p></td>`;
+        table+=`<td contenteditable="true" id="animalType${pets[i]._id}"><p>`+pets[i].type+`</p></td>`;
+        table+=`<td contenteditable="true" id="description${pets[i]._id}"><p>`+pets[i].description+`</p></td>`;
+        table+=`<td><p><buttom value="Submit" class="btn btn-warning" 
+        onclick='updatepet("${pets[i]._id}","petname${pets[i]._id}","age${pets[i]._id}","animalClass${pets[i]._id}","animalType${pets[i]._id}","description${pets[i]._id}" )'>
+        Edit</buttom></p></td>`;
+        table+='<td><p><buttom value="Submit" id="myModelBtn" class="btn btn-success">Adopt</buttom></p></td>';
+        table+=`<td><p><buttom value="Submit" id="deletePetButton" class="btn btn-danger" onclick='deletepet("${pets[i]._id}")'>Delete</buttom></p></td>`;
+        table+="</tr>";
+        }
+        table+="</tbody>";
+        table+="</table>";
+        document.getElementById("allpets").innerHTML = table;
+    }
+    else{
+     document.getElementById("allpets").innerHTML = table;
+        console.log("Pets file is empety")
+    }
+}
+
 //create function
 let createButton = document.getElementById('createPetButton');
 createButton.addEventListener("click", evt => {
@@ -25,85 +80,7 @@ createButton.addEventListener("click", evt => {
         getAll();
         console.log(res)});
 });
-
-//delete a pet
-const deletepet = async (_id) =>{
-    console.log(_id)
-    const options = {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }
-    const data = await fetch('http://localhost:3000/pet/'+_id, options)
-        .then(res =>  {
-            if (res.ok) {
-                return Promise.resolve('pet deleted.');
-            } else {
-                return Promise.reject('An error occurred.');
-            }
-        })
-        .catch()
-            alert('pet deleted.');
-            getAll();    
- }
-
-let pets = [];
- const getAll = () => {
-    console.log("caling get all")
-    fetch('http://localhost:3000/pets')
-    .then(res => res.json())
-    .then(res => {
-        pets = res;
-    callbackData();
-    });
- }
-
- const callbackData = () => {
-    if (pets.length >= 1){
-        var table = '<table class="table">';
-        table+='<thead>';
-        table+='<tr>'
-        table+='<th>Id</th>';
-        table+='<th>Name</th>';
-        table+='<th>Age</th>';
-        table+='<th>Group</th>';
-        table+='<th>Type</th>';
-        table+='<th>Description</th>';
-        table+='<th>Edit</th>';
-        table+='<th>Adopt</th>';
-        table+='<th>Delete</th>';
-        table+="</tr>"
-        table+="</thead>";
-
-        for (var i = 0; i < pets.length; i++){
-        table+="<tr>";
-        table+='<td scope="row">'+pets[i]._id+'</td>';
-        table+=`<td contenteditable="true" id="petname${pets[i]._id}">`+pets[i].name+ `</td>`;
-        table+=`<td contenteditable="true" id="age${pets[i]._id}">`+pets[i].age+`</td>`;
-        table+=`<td contenteditable="true" id="animalClass${pets[i]._id}">`+pets[i].group+`</td>`;
-        table+=`<td contenteditable="true" id="animalType${pets[i]._id}">`+pets[i].type+`</td>`;
-        table+=`<td contenteditable="true" id="description${pets[i]._id}">`+pets[i].description+`</td>`;
-        table+=`<td><buttom value="Submit" class="btn btn-warning" 
-        onclick='updatepet("${pets[i]._id}","petname${pets[i]._id}","age${pets[i]._id}","animalClass${pets[i]._id}","animalType${pets[i]._id}","description${pets[i]._id}" )'>
-        Edit</buttom></td>`;
-        table+='<td><buttom value="Submit" class="btn btn-success">Adopt</buttom></td>';
-        table+=`<td><buttom value="Submit" id="deletePetButton" class="btn btn-danger" onclick='deletepet("${pets[i]._id}")'>Delete</buttom></td>`;
-        table+="</tr>";
-        }
-    
-        table+="</table>";
-        document.getElementById("allpets").innerHTML = table;
-    }
-    else{
-     document.getElementById("allpets").innerHTML = "<p>Pets file is empety, please enter a new pet in the form</p>";
-        console.log("Pets file is empety")
-    }
-}
-
- 
-
-//update pets info
+//update pets 
 const updatepet = (id,petname,age,animalClass,animalType,description) => {
    let body ={
     name: document.getElementById(petname).innerText,
@@ -129,6 +106,38 @@ const updatepet = (id,petname,age,animalClass,animalType,description) => {
             getAll();
             });
 };
+
+//delete a pet
+const deletepet = async (_id) =>{
+    console.log(_id)
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    const data = await fetch('http://localhost:3000/pet/'+_id, options)
+        .then(res =>  {
+            if (res.ok) {
+                deleteRow(_id);
+                return Promise.resolve('pet deleted.'); 
+            } else {
+                return Promise.reject('An error occurred.');
+            }
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+ }
+
+//delete the row 
+const deleteRow = (id) => {
+    let _id = "petId"+id;
+    document.getElementById(_id).remove();
+};
+
+
+
 
  getAll();
  

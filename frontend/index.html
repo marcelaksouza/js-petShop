@@ -1,95 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title> Pet’s World Adoption Center.</title>
-    
-    <!-- Latest compiled and minified CSS -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <!-- jQuery library -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-     <link rel="stylesheet" href="css/styles.css">
 
-    <!--<script src="js/functions.js">-->
-    <script src="js/state.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
 
 </head>
-<body>
-<div class="banner">
-</div>
 
-<div class="topnav">
+<body>
+    <div class="banner">
+    </div>
+
+    <div class="topnav">
         <a class="active" href="#home">Home</a>
         <a href="#news">News</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
-</div>
-
-<div class="jumbotron">
-    <h1 class="display-4"> Welcome to Pet’s World Adoption Center. </h1>
-    <p class="lead">Admin area</p>
-    
-</div>
-
-<div class="container">
-
-    <div class="col-md-2 col-sm-2">
-        <!-- <form action="/api/" method="post" enctype="application.json">-->
-        <form action="/">
-            <div id="form" class="form-group" >
-            <h3>Pet Form</h3>
-            <br>
-            <label> Pet's Name:</label>
-            <br>
-            <input type="text" name="petname" id='petname' required>
-            <br>
-            <label>Age:</label>
-            <br>
-            <input type="text" name="age" id='age' required>
-            <br>
-            <label>Description:</label>
-            <br>
-            <textarea name="description" id="description" rows="3" required></textarea>
-            <br>
-            <label>Animal class</label>
-                <select name="animalclass" id="animalclass" required>
-                    <option value="mammal" >Mammals</option>
-                    <option value="fish" >Fish</option>
-                    <option value="reptile" >Reptiles</option>
-                    <option value="bird" >Birds</option>
-                </select>
-            <br><br>
-            <label>Animal Type</label>
-                <select name="animaltype" id='animaltype' required>
-                    <option value="cat" >Cat</option>
-                    <option value="dog" >Dog</option>
-                    <option value="goldfish" >Gold fish</option>
-                    <option value="turtle" >Turtle</option>
-                    <option value="cockatiel" >Cockatiel</option>
-                </select>
-            <br><br>
-            <buttom value="Submit" id="createPetButton" class="btn btn-primary"  >Submit</buttom>
-            </div>
-        </form> 
     </div>
 
-    <div class="col-md-10 col-sm-10">
+    <div class="jumbotron">
+        <h1 class="display-4"> Welcome to Pet’s World Adoption Center. </h1>
+        <p class="lead">Admin area</p>
+
+    </div>
+
+    <div class="container">
+
+        <div class="col-md-2 ">
+            <!-- <form action="/api/" method="post" enctype="application.json">-->
+            <form action="/">
+                <div id="form\'s" class="form-group">
+                    <h3>Pet Form</h3>
+                    
+                    <label> Pet's Name:</label>
+                    <br>
+                    <input class="form-control" type="text" name="petname" id='petname' required>
+                    <br>
+                    <label>Age:</label>
+                    <br>
+                    <input class="form-control" type="text" name="age" id='age' required>
+                    <br>
+                    <label>Description:</label>
+                    <br>
+                    <textarea class="form-control" name="description" id="description" rows="3" required></textarea>
+                    <br>
+                    <label for="animalclass">Animal class</label>
+                    <select class="form-control" name="animalclass" id="animalclass" required>
+                        <option value="mammal">Mammals</option>
+                        <option value="fish">Fish</option>
+                        <option value="reptile">Reptiles</option>
+                        <option value="bird">Birds</option>
+                    </select>
+                    <br>
+                    <label>Animal Type</label>
+                    <select class="form-control" name="animaltype" id='animaltype' required>
+                        <option value="cat">Cat</option>
+                        <option value="dog">Dog</option>
+                        <option value="goldfish">Gold fish</option>
+                        <option value="turtle">Turtle</option>
+                        <option value="cockatiel">Cockatiel</option>
+                    </select>
+                    <br><br>
+                    <buttom value="Submit" id="createPetButton" class="btn btn-primary">Submit</buttom>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-10 col-sm-10">
             <div id="allpets">
+
             </div>
             <script src="js/functions.js">
                 // getAll();
             </script>
         </div>
-</div>
- 
-<script> 
-        
-  
+    </div>
+
+    
 
 
-</script>
+    </bood>
+    <!-- Footer -->
+    <footer class="page-footer font-small blue">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
 
-</bood>  
+    </footer>
+    <!-- Footer -->
+
 </html>
