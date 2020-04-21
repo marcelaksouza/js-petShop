@@ -11,23 +11,9 @@ let pets = [];
  }
 //create the table
  const callbackData = () => {
-    var table = '<table id="table" class="table">';
-    table+='<thead>';
-    table+='<tr>'
-    table+='<th>Id</th>';
-    table+='<th>Name</th>';
-    table+='<th>Age</th>';
-    table+='<th>Group</th>';
-    table+='<th>Type</th>';
-    table+='<th>Description</th>';
-    table+='<th>Edit</th>';
-    table+='<th>Adopt</th>';
-    table+='<th>Delete</th>';
-    table+="</tr>"
-    table+="</thead>";
-    table+="<tbody>";
-   
-    if (pets.length >= 1){
+    
+    let table="";
+    
         for (var i = 0; i < pets.length; i++){
         table+=`<tr id="petId${pets[i]._id}">`;
         table+=`<td scope="row" ><p>`+pets[i]._id+`</p></td>`;
@@ -39,19 +25,16 @@ let pets = [];
         table+=`<td><p><buttom value="Submit" class="btn btn-warning" 
         onclick='updatepet("${pets[i]._id}","petname${pets[i]._id}","age${pets[i]._id}","animalClass${pets[i]._id}","animalType${pets[i]._id}","description${pets[i]._id}" )'>
         Edit</buttom></p></td>`;
-        table+='<td><p><buttom value="Submit" id="myModelBtn" class="btn btn-success">Adopt</buttom></p></td>';
+        table+=`<td><p><buttom type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-success">Adopt</buttom></p></td>`;
         table+=`<td><p><buttom value="Submit" id="deletePetButton" class="btn btn-danger" onclick='deletepet("${pets[i]._id}")'>Delete</buttom></p></td>`;
         table+="</tr>";
         }
-        table+="</tbody>";
-        table+="</table>";
-        document.getElementById("allpets").innerHTML = table;
+    
+        
+        document.getElementById("allpets").getElementsByTagName('tbody')[0].innerHTML = table;
     }
-    else{
-     document.getElementById("allpets").innerHTML = table;
-        console.log("Pets file is empety")
-    }
-}
+    
+
 
 //create function
 let createButton = document.getElementById('createPetButton');
@@ -65,7 +48,6 @@ createButton.addEventListener("click", evt => {
     type: document.querySelector('#animaltype').value,
     }
 
-    console.log(body);
     const options = {
     method: 'POST',
     body: JSON.stringify(body), 
@@ -135,7 +117,6 @@ const deleteRow = (id) => {
     let _id = "petId"+id;
     document.getElementById(_id).remove();
 };
-
 
 
 
