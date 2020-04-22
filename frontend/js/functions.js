@@ -1,3 +1,4 @@
+
 //get all pets save in the pets array
 let pets = [];
  const getAll = () => {
@@ -25,7 +26,7 @@ let pets = [];
         table+=`<td><p><buttom value="Submit" class="btn btn-warning" 
         onclick='updatepet("${pets[i]._id}","petname${pets[i]._id}","age${pets[i]._id}","animalClass${pets[i]._id}","animalType${pets[i]._id}","description${pets[i]._id}" )'>
         Edit</buttom></p></td>`;
-        table+=`<td><p><buttom type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-success">Adopt</buttom></p></td>`;
+        table+=`<td><p><buttom id="myBtn" onclick='openModalfunction("${pets[i]._id}")' class="btn btn-success">Adopt</buttom></p></td>`;
         table+=`<td><p><buttom value="Submit" id="deletePetButton" class="btn btn-danger" onclick='deletepet("${pets[i]._id}")'>Delete</buttom></p></td>`;
         table+="</tr>";
         }
@@ -34,7 +35,9 @@ let pets = [];
         document.getElementById("allpets").getElementsByTagName('tbody')[0].innerHTML = table;
     }
     
+    getAll();
 
+    
 
 //create function
 let createButton = document.getElementById('createPetButton');
@@ -118,7 +121,28 @@ const deleteRow = (id) => {
     document.getElementById(_id).remove();
 };
 
+const openModalfunction=(id)=> {
+        // Get the modal
+let modal = document.getElementById("myModal");
+modal.style.display = "block";
+
+// Get the <span> element that closes the modal
+let span = document.getElementsByClassName("close")[0];
 
 
- getAll();
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+};
+
+
+
  
