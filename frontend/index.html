@@ -36,10 +36,9 @@
 
         <div class="col-md-2 ">
             <!-- <form action="/api/" method="post" enctype="application.json">-->
-            <form action="/">
+            <form id="createPetForm" action="/">
                 <div id="form\'s" class="form-group">
                     <h3>Pet Form</h3>
-
                     <label> Pet's Name:</label>
                     <br>
                     <input class="form-control" type="text" name="petname" id='petname' required>
@@ -76,9 +75,12 @@
 
         <div class="col-md-10 col-sm-10">
             <div class="form-check form-check-inline">
+                <!--to adopt-->
                 <input class="form-check-input" type="radio" id="notAdopted" name="isAdopted" value="notAdopted" checked
-                    onclick='getAll("")'>
+                    onclick='getAll("false")'>
                 <label class="form-check-label" for="notAdopted">To Adoption</label>
+                
+                <!--adopted-->
                 <input class="form-check-input" type="radio" id="adopted" name="isAdopted" value="adopted"
                     onclick='getAll("true")'>
                 <label class="form-check-label" for="adopted">Adopted </label>
@@ -92,7 +94,8 @@
                 <!-- Modal content -->
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                    <p>Some text in the Modal..</p>
+                    <div id="modal-content"></div>
+                    <div id="modal-form"></div>
                 </div>
 
             </div>
@@ -100,9 +103,13 @@
 
 
         </div>
-        <script src="js/functions.js">
-                // getAll();
-        </script>
+        <script src="js/get.js"></script>
+        <script src="js/create.js"></script>
+        <script src="js/update.js"></script>
+        <script src="js/functions.js"></script>
+        <script src="js/delete.js"></script>
+        <script src="js/modal.js"></script>
+        
     </div>
     </div>
 
