@@ -75,45 +75,36 @@
         </div>
 
         <div class="col-md-10 col-sm-10">
-            <div id="allpets">
-                <table id="table" class="table">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Group</th>
-                            <th>Type</th>
-                            <th>Description</th>
-                            <th>Edit</th>
-                            <th>Adopt</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>;
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="notAdopted" name="isAdopted" value="notAdopted" checked
+                    onclick='getAll("")'>
+                <label class="form-check-label" for="notAdopted">To Adoption</label>
+                <input class="form-check-input" type="radio" id="adopted" name="isAdopted" value="adopted"
+                    onclick='getAll("true")'>
+                <label class="form-check-label" for="adopted">Adopted </label>
             </div>
-            <script src="js/functions.js">
-                // getAll();
-            </script>
+            <div id="allpets">
+            </div>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Some text in the Modal..</p>
+                </div>
+
+            </div>
+
+
+
         </div>
+        <script src="js/functions.js">
+                // getAll();
+        </script>
     </div>
-
-    <div id="modalContainer" class="modal">
     </div>
-
-    <!-- The Modal -->
-<div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p>test </p>
-    </div>
-  
-  </div>
-
 
     </bood>
     <!-- Footer -->

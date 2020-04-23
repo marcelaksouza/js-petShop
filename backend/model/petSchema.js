@@ -21,15 +21,15 @@ const petSchema = new mongoose.Schema({
         type: Boolean,
         default : "false"
     },
-    owner:[{
-        Name: {
+    owner:{
+        name: {
             type: String,
             default: "none"
         },
-        Address:{
+        address:{
             type: String
         }
-    }]
+    }
 });
 
 module.exports = mongoose.model("Pet", petSchema);

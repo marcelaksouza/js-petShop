@@ -9,7 +9,6 @@ router
 .route("/pets")
 .get(petController.getAllPets);
 
-
 router
 .route("/pet")
 .post(petController.createPet);
@@ -19,6 +18,5 @@ router
 .get(petController.getOnePet)
 .put(petController.updatePet)
 .delete(petController.deletePet);
-
 
 module.exports = router;

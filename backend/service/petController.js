@@ -2,14 +2,13 @@ const Pet = require('../model/petSchema');
 const ResponseHandler = require('../shared/helpers/responseHandler');
 
 const getAllPets = (req, res) => {
-    Pet.find({}).exec(function (err, data) {
+    Pet.find(req.query).exec(function (err, data) {
         if (err) {
         ResponseHandler.errorHandling(err, res);
         }
       ResponseHandler.successMessage(data, res);
   });
 };
-
 
 const createPet = (req, res, next) => {
   console.log("req.body")
