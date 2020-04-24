@@ -5,6 +5,10 @@ const router = express.Router();
 const petController = require('../service/petController');
 require('../shared/db');
 
+router.get('/',function(req,res) {
+    res.sendFile('../../frontend/index.html');
+  });
+
 router
 .route("/pets")
 .get(petController.getAllPets);
