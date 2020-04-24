@@ -15,6 +15,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(expAutoSan.allUnsafe);
 app.use(require('./routes/routes.js'));
 
-const server = app.listen(process.env.PORT || 3000, function(){
-    console.log("listening to port %s", server.address().port)
+var port = process.env.PORT || 3000;
+
+app.listen(port, function(err){
+    console.log("Listening on Port: " + port)
 });
+// app.listen(process.env.PORT || 3000, function(){
+//     console.log("listening to port %s", server.address().port)
+// });
