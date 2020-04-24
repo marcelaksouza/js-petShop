@@ -83,3 +83,14 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+h2{
+  text-align: center;
+}
+
+img{
+  top: 100px;
+  width: 200px;
+  height: auto;
+  padding: 20px;
+}

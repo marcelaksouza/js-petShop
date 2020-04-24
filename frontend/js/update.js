@@ -62,11 +62,13 @@ const adoptedUpdatepet = (id, petname, age, animalClass, animalType, description
 //owner update
 const ownerUpdate = (id) => {
     console.log("ownerUpdate")
+    console.log(id);
     let body = {
+        adopted : true,
         owner:
         {
-            name: document.querySelector('#petname').value,
-            address: document.querySelector('#age').value,
+            name: document.querySelector('#ownerName'+id).value,
+            address: document.querySelector('#ownerAddress'+id).value,
         }
     }
 
@@ -83,6 +85,8 @@ const ownerUpdate = (id) => {
         .then(res => res.json())
         .then(res => {
             console.log(res);
+            span.click();
+            document.getElementById("adopted").click();
         }).catch((err) => {
             console.log(err);
         })

@@ -21,7 +21,7 @@ const getAll = (trueOrFalse) => {
                 adoptedFunction();
                 console.log("adoptedFunction")
             }
-        });
+        }).catch((err) => console.log(err));
 }
 //create the table
 const toAdoptFunction = () => {
@@ -102,4 +102,25 @@ const adoptedFunction = () => {
     table += '</tbody>';
     table += '</table>';
     document.getElementById("allpets").innerHTML = table;
+}
+
+const getOnepet = (_id) => {
+    console.log("Get One ")
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    fetch('http://localhost:3000/pet/' + _id, options)
+    .then(res => res.json())
+    .then(pet => {
+       let content = "";
+       content += `<h2>Pets Info</h2>`
+       content += "<p><b>Pet's Name:</b>"+" "+pet.name+"</p>";
+       content += "<p><b>Pet's Age:</b>"+pet.age+"</p>";
+       content += "</p><b>Pet's Description:</b>"+pet.description+"</p>"
+      
+       document.getElementById("modal-content").innerHTML = content;
+    }).catch((err) => console.log(err));
 }
