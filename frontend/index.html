@@ -11,6 +11,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
+    <!-- css stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
 
 </head>
@@ -33,7 +35,6 @@
     </div>
 
     <div class="container">
-
         <div class="col-md-2 ">
             <!-- <form action="/api/" method="post" enctype="application.json">-->
             <form id="createPetForm" action="/">
@@ -67,7 +68,9 @@
                         <option value="turtle">Turtle</option>
                         <option value="cockatiel">Cockatiel</option>
                     </select>
-                    <br><br>
+                    <br>
+                    <input type="file" class="custom-file-input" id="customPic">
+                    <br>
                     <buttom value="Submit" id="createPetButton" class="btn btn-primary">Submit</buttom>
                 </div>
             </form>

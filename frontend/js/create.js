@@ -2,21 +2,26 @@
 //create function
 let createButton = document.getElementById('createPetButton');
 createButton.addEventListener("click", evt => {
-
-    let body = {
-        name: document.querySelector('#petname').value,
-        age: document.querySelector('#age').value,
-        description: document.querySelector('#description').value,
-        group: document.querySelector('#animalclass').value,
-        type: document.querySelector('#animaltype').value,
-
-    }
+  let myfile=  document.getElementById("customPic").files[0];
+    // let body = {
+    //     name: document.querySelector('#petname').value,
+    //     age: document.querySelector('#age').value,
+    //     description: document.querySelector('#description').value,
+    //     group: document.querySelector('#animalclass').value,
+    //     type: document.querySelector('#animaltype').value,
+    //     image: ""
+    // }
+    let fd = new FormData()
+    fd.append("name", document.querySelector('#petname').value );
+    fd.append("image", myfile, myfile.name)
 
     const options = {
         method: 'POST',
-        body: JSON.stringify(body),
+        body: fd,
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'false',
+            'enctype' : 'multipart/form-data',
+            'processData': 'false'
         }
     }
 

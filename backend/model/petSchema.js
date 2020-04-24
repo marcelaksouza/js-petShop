@@ -29,7 +29,11 @@ const petSchema = new mongoose.Schema({
         address:{
             type: String
         }
+    },
+    image:{
+        type: String
     }
+
 });
 
 module.exports = mongoose.model("Pet", petSchema);
