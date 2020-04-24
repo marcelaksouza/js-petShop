@@ -2,7 +2,14 @@
 //create function
 let createButton = document.getElementById('createPetButton');
 createButton.addEventListener("click", evt => {
+    let age = document.querySelector('#age').value;
+    let name = document.querySelector('#petname').value;
+    //|| !/^[0-9]+$/.test(age)
+    if(name == "" || !/^[a-zA-Z]+$/.test(name) || age == "" || !/^[0-9]+$/.test(age)){
+        alert("Enter a valid name and age")
+      }
 
+else{
     let body = {
         name: document.querySelector('#petname').value,
         age: document.querySelector('#age').value,
@@ -28,4 +35,6 @@ createButton.addEventListener("click", evt => {
             //getAll("false");
             console.log(res)
         });
+}
+    
 });

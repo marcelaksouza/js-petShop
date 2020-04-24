@@ -32,7 +32,7 @@ const ownerFormFunction = (id) => {
     form +=`<input class="form-control" type="text" name="ownerName${id}" id='ownerName${id}' required>`;//imput ownername
     form +=`<label> Owner' address</label><br>`;//label address
     form +=`<input class="form-control" type="text" name="ownerAddress${id}" id='ownerAddress${id}' required><br>`;//imput address
-    form +=`<buttom value="Submit" id="ownerForm" class="btn btn-primary" onclick='ownerUpdate("${id}")'>Submit</buttom>`;
+    form +=`<buttom value="Submit" id="ownerForm" class="btn btn-primary" onclick='ownerUpdate("${id}")'>Submit</buttom>`;//on click owner update 
     form +=``;
 
     document.getElementById("modal-form").innerHTML = form;

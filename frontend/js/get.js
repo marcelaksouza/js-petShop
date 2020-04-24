@@ -32,7 +32,7 @@ const toAdoptFunction = () => {
     table += '<tr>';
     table += '<th>Id</th>';
     table += '<th>Name</th>';
-    table += '<th>Age</th>';
+    table += '<th>Age(months)</th>';
     table += '<th>Group</th>';
     table += '<th>Type</th>';
     table += '<th>Description</th>';
@@ -48,7 +48,7 @@ const toAdoptFunction = () => {
         table += `<td scope="row" ><p>` + pets[i]._id + `</p></td>`;//pet id
         table += `<td contenteditable="true" id="petname${pets[i]._id}"><p>` + pets[i].name + `</p></td>`;//pet name
         table += `<td contenteditable="true" id="age${pets[i]._id}"><p>` + pets[i].age + `</p></td>`;//pet age
-        table += `<td contenteditable="true" id="animalClass${pets[i]._id}"><p>` + pets[i].group + `</p></td>`;//pet group
+        table += `<td id="animalClass${pets[i]._id}"><p>` + pets[i].group + `</p></td>`;//pet group
         table += `<td contenteditable="true" id="animalType${pets[i]._id}"><p>` + pets[i].type + `</p></td>`;//pet type
         table += `<td contenteditable="true" id="description${pets[i]._id}"><p>` + pets[i].description + `</p></td>`;//pet description
         table += `<td><p><buttom value="Submit" class="btn btn-warning" 
@@ -72,7 +72,7 @@ const adoptedFunction = () => {
     table += '<tr>';
     table += '<th>Id</th>';
     table += '<th>Name</th>';
-    table += '<th>Age</th>';
+    table += '<th>Age (months) </th>';
     table += '<th>Group</th>';
     table += '<th>Type</th>';
     table += '<th>Description</th>';
@@ -88,7 +88,7 @@ const adoptedFunction = () => {
         table += `<td scope="row" ><p>` + pets[i]._id + `</p></td>`;//id
         table += `<td contenteditable="true" id="petname${pets[i]._id}"><p>` + pets[i].name + `</p></td>`;//pets name
         table += `<td contenteditable="true" id="age${pets[i]._id}"><p>` + pets[i].age + `</p></td>`;//pets age
-        table += `<td contenteditable="true" id="animalClass${pets[i]._id}"><p>` + pets[i].group + `</p></td>`;//pets group
+        table += `<td id="animalClass${pets[i]._id}"><p>` + pets[i].group + `</p></td>`;//pets group
         table += `<td contenteditable="true" id="animalType${pets[i]._id}"><p>` + pets[i].type + `</p></td>`;//pets type
         table += `<td contenteditable="true" id="description${pets[i]._id}"><p>` + pets[i].description + `</p></td>`;//pets description
         table += `<td contenteditable="true" id="ownerName${pets[i]._id}"><p>` + pets[i].owner.name + `</p></td>`;//owner name
