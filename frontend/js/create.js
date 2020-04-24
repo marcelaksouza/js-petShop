@@ -27,7 +27,7 @@ else{
         }
     }
 
-    fetch('http://localhost:3000/pet', options)
+    fetch('/pet', options)
         .then(res => res.json())
         .then(res => {
             document.getElementById("notAdopted").click();
