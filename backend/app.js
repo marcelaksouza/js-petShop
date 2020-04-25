@@ -20,6 +20,6 @@ app.use(express.static('frontend'));
 
 //start the server
 //npm start
-app.listen(process.env.PORT || 3000, function(){
-    console.log("listening to port %s", server.address().port)
-});
+const server = app.listen(process.env.PORT || 3000, function(){
+    console.log("listening to port %s", server.address().port);	  
+}); 	 
