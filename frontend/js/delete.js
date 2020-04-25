@@ -1,4 +1,4 @@
-//delete a pet
+//delete a pet db request
 const deletepet = async (_id) => {
     console.log(_id)
     const options = {

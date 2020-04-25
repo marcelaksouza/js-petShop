@@ -1,10 +1,12 @@
+//load .env variables
 require('dotenv').config()
-
+//imports
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require ('morgan')
 const app = express();
 const cors = require('cors');
+
 //sanitizer
 const expAutoSan = require('express-autosanitizer');
 
@@ -16,11 +18,8 @@ app.use(expAutoSan.allUnsafe);
 app.use(require('./routes/routes.js'));
 app.use(express.static('frontend'));
 
-var port = process.env.PORT || 3000;
-
-app.listen(port, function(err){
-    console.log("Listening on Port: " + port)
+//start the server
+//npm start
+app.listen(process.env.PORT || 3000, function(){
+    console.log("listening to port %s", server.address().port)
 });
-// app.listen(process.env.PORT || 3000, function(){
-//     console.log("listening to port %s", server.address().port)
-// });

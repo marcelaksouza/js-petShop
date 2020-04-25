@@ -61,13 +61,14 @@ const adoptedUpdatepet = (id, petname, age, animalClass, animalType, description
 
 //owner update
 const ownerUpdate = (id) => {
-    console.log("ownerUpdate")
+    //console.log("ownerUpdate")
     const name = document.querySelector('#ownerName'+id).value
+    //validation if name is empty and if its a string
     if(name == "" || !/^[a-zA-Z]+$/.test(name) ){
         alert("Enter the pet owner's name")
       }
     else {
-
+        //create owner's request body and set adopted to true
         let body = {
             adopted : true,
             owner:
@@ -76,8 +77,7 @@ const ownerUpdate = (id) => {
                 address: document.querySelector('#ownerAddress'+id).value,
             }
         }
-    
-        console.log(body)
+        //request options
         const options = {
             method: 'PUT',
             body: JSON.stringify(body),
@@ -85,11 +85,12 @@ const ownerUpdate = (id) => {
                 'Content-Type': 'application/json'
             }
         }
-    
+        //update request
         fetch('/pet/' + id, options)
             .then(res => res.json())
             .then(res => {
-                console.log(res);
+                //close modal 
+                //click adopted radio button
                 span.click();
                 document.getElementById("adopted").click();
             }).catch((err) => {

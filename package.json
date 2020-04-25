@@ -4,11 +4,7 @@
   "description": "petshop CA",
   "main": "app.js",
   "scripts": {
-<<<<<<< HEAD:package.json
     "start": "node backend/app.js",
-=======
-    
->>>>>>> fd48f5a0f4f68b035092501df4016e85a99ddcc6:backend/package.json
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Marcela",

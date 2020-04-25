@@ -1,10 +1,12 @@
 
+//load env variables
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config();
 const app = express();
 mongoose.Promise = global.Promise
 
+//db connection
 mongoose.connect(process.env.DB, { useUnifiedTopology: true, useNewUrlParser: true})
 .then(() => {
     console.log("Database connection established!");

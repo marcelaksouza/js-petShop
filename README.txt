@@ -5,43 +5,55 @@ Interactive Web Application CA2 - Pet's World
 
 Marcela Souza (2017374)
 Github: https://github.com/marcelaksouza/web-ca
+Heroku link: https://sleepy-forest-46802.herokuapp.com/
 
 
-
-Project outline
-My interactive web application is a pet adoption center called  Pet’s World Adoption Center. 
-The application was developed targeting the staff of Pet’s World Adoption Center, 
-it has the functionality of include a new pet, read, adopt, edit the pet information and/or delete a pet. 
-The application also list all the pets that are for adoption and the ones that was already adopted.
-All those functionalities sent an API request to the server which manipulates the JSON file accordingly. The application will also dynamically allocated new ids to the new entries.
+My interactive web application is a pet adoption center called Pet’s World Adoption Center. 
+The application was developed targeting the staff of this adoption Center. 
+The web site can execute the following functionalities: 
+-Add a new pet, 
+-List and categorize the pets,
+-Adopt, 
+-Edit information,
+-Delete a pet. 
+All those functionalities sent an API request to the server which manipulates the JSON file accordingly. The application will also dynamically allocate new ids to the new entries.
 Application is using HTML, CSS, JavaScript for the frontend and Node.js with Express.js along with other packages for the backend. 
 
-	
+ 
 Sanitation and Validation
-I am using the module express-autosanitizer to sanitize the inputs.
-For validation only a valid schema can be added to the Json file.
-
+Frontend:
+New pet form: 
+-Fields name, and age are required.  
+-Name must be a string and age a number. 
+Owner form: 
+-Pet owner’s name is mandatory.
+-Owner’s name must be a string
+Backend:
+-Express-autosanitizer 
+-Required fields added to schema model
 
 
 User manual
-
-Image 1 : Website
-
-
 To run the application
-Go to ca/backend and use npm install to install all the dependencies of the project then npm run dev to start the server. 
-The application is set to run on port 3000. Open a browser and type localhost:3000
+Go to https://sleepy-forest-46802.herokuapp.com/ 
 
-To insert a new pet
-Simply insert the information into the form and click submit. It will update the table with the new information automatically
+List all pets for adoption
+To adoption is the default list value selected but to load it again, click in the to adoption radio button. 
+List all adopted pets
+After entering an owner for a pet you will be directed to the adopted list. You can also access it by clicking on the adopted radio button. 
+Insert a new pet
+Simply insert the information into the form and click . It will update the table with the new information automatically
 
-to edit the pet’s information 
-Hover over the information you want to edit and press edit to make the change permanent.
+Edit the pet’s information 
+Hover over the information you want to edit and press  to make the change permanent.
 
-To delete a pet
+To adopt a pet
+Click the button adopt and a modal loading the pet’s information will open along with the owner's form. Enter the Owner’s name and its address. The name is the only required field. After enter the information the submit button will redirect the user to adopt session where the new entry will be listed
+
+
+Delete a pet
 Hover over the pet you want to delete and click delete. The table will be updated automatically. 
-Further development 
-Develop the functionality of the button . 
+
 
 
 

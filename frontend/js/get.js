@@ -2,17 +2,19 @@
 //get all pets save in the pets array
 let pets = [];
 const getAll = (trueOrFalse) => {
-    console.log("caling get ")
-    
-     let query = "";
-     if (trueOrFalse !== undefined) {
-         query = "adopted=" + trueOrFalse;
-     }
+    //console.log("caling get ")
+    //if parameter is no empty then make the query
+    let query = "";
+    if (trueOrFalse !== undefined) {
+        query = "adopted=" + trueOrFalse;
+    }
 
+    //request using the query
     fetch('/pets?' + query)
         .then(res => res.json())
         .then(res => {
             pets = res;
+            //redirect to the right list acording with the variable value
             if (trueOrFalse == "false") {
                 toAdoptFunction();
                 console.log("toAdoptFunction")
@@ -23,9 +25,10 @@ const getAll = (trueOrFalse) => {
             }
         }).catch((err) => console.log(err));
 }
-//create the table
+//create the to adopt table
 const toAdoptFunction = () => {
-    console.log("to adopt function")
+    //console.log("to adopt function")
+    //to adopt headers
     let table = "";
     table += '<table id="table" class="table">';
     table += '<thead>';
@@ -42,7 +45,7 @@ const toAdoptFunction = () => {
     table += '</tr>';
     table += '</thead>';
     table += '<tbody>';
-
+    //dinamic filds for the table 
     for (var i = 0; i < pets.length; i++) {
         table += `<tr id="petId${pets[i]._id}">`;//row id
         table += `<td scope="row" ><p>` + pets[i]._id + `</p></td>`;//pet id
@@ -63,7 +66,7 @@ const toAdoptFunction = () => {
     document.getElementById("allpets").innerHTML = table;
 }
 
-// adopted Function
+//create the adopted table
 const adoptedFunction = () => {
     console.log("adopted function")
     let table = "";
@@ -83,6 +86,8 @@ const adoptedFunction = () => {
     table += '</tr>';
     table += '</thead>';
     table += '<tbody>';
+    //dinamic filds for the table 
+    //includ the buttons and its lated activate function
     for (var i = 0; i < pets.length; i++) {
         table += `<tr id="petId${pets[i]._id}">`;
         table += `<td scope="row" ><p>` + pets[i]._id + `</p></td>`;//id
@@ -104,23 +109,27 @@ const adoptedFunction = () => {
     document.getElementById("allpets").innerHTML = table;
 }
 
+// return one pet from get one fetch
 const getOnepet = (_id) => {
-    console.log("Get One ")
+    //console.log("Get One ");
+    //request options
     const options = {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         }
     }
+    //request
     fetch('/pet/' + _id, options)
-    .then(res => res.json())
-    .then(pet => {
-       let content = "";
-       content += `<h2>Pets Info</h2>`
-       content += "<p><b>Pet's Name:</b>"+" "+pet.name+"</p>";
-       content += "<p><b>Pet's Age:</b>"+pet.age+"</p>";
-       content += "</p><b>Pet's Description:</b>"+pet.description+"</p>"
-      
-       document.getElementById("modal-content").innerHTML = content;
-    }).catch((err) => console.log(err));
+        .then(res => res.json())
+        .then(pet => {
+            //add pet response in the modal
+            let content = "";
+            content += `<h2>Pets Info</h2>`
+            content += "<p><b>Pet's Name:</b>" + " " + pet.name + "</p>";
+            content += "<p><b>Pet's Age:</b>" + pet.age + "</p>";
+            content += "</p><b>Pet's Description:</b>" + pet.description + "</p>"
+
+            document.getElementById("modal-content").innerHTML = content;
+        }).catch((err) => console.log(err));
 }
