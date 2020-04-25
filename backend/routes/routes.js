@@ -5,9 +5,9 @@ const router = express.Router();
 const petController = require('../service/petController');
 require('../shared/db');
 const path = require('path');
-router.get('/',function(req,res) {
-    res.sendFile(path.join(__dirname, '../../frontend', 'index.html'));
-  });
+// router.get('/',function(req,res) {
+//     res.render(path.join(__dirname, '../../frontend', 'index'));
+//   });
 
 router
 .route("/pets")

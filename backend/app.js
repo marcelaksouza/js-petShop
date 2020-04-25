@@ -14,6 +14,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expAutoSan.allUnsafe);
 app.use(require('./routes/routes.js'));
+app.use(express.static('frontend'));
 
 var port = process.env.PORT || 3000;
 
