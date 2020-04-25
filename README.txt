@@ -1,8 +1,7 @@
 # web-ca
 
 
-Interactive Web Application
-CA1 
+Interactive Web Application CA2 - Pet's World 
 
 Marcela Souza (2017374)
 Github: https://github.com/marcelaksouza/web-ca
@@ -10,7 +9,11 @@ Github: https://github.com/marcelaksouza/web-ca
 
 
 Project outline
-My interactive web application is a pet adoption center called  Pet’s World Adoption Center. The application was developed targeted the staff of Pet’s World Adoption Center, it has the functionality of include a new pet, read, edit the pet information and/or delete a pet. All those functionalities sent an API request to the server which manipulates the JSON file accordingly. The application will also dynamically allocated new ids to the new entries.
+My interactive web application is a pet adoption center called  Pet’s World Adoption Center. 
+The application was developed targeting the staff of Pet’s World Adoption Center, 
+it has the functionality of include a new pet, read, adopt, edit the pet information and/or delete a pet. 
+The application also list all the pets that are for adoption and the ones that was already adopted.
+All those functionalities sent an API request to the server which manipulates the JSON file accordingly. The application will also dynamically allocated new ids to the new entries.
 Application is using HTML, CSS, JavaScript for the frontend and Node.js with Express.js along with other packages for the backend. 
 
 	

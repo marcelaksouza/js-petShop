@@ -7,7 +7,7 @@ const deletepet = async (_id) => {
             'Content-Type': 'application/json'
         }
     }
-    const data = await fetch('http://localhost:3000/pet/' + _id, options)
+    const data = await fetch('/pet/' + _id, options)
         .then(res => {
             if (res.ok) {
                 deleteRow(_id);

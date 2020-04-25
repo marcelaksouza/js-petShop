@@ -9,7 +9,7 @@ const getAll = (trueOrFalse) => {
          query = "adopted=" + trueOrFalse;
      }
 
-    fetch('http://localhost:3000/pets?' + query)
+    fetch('/pets?' + query)
         .then(res => res.json())
         .then(res => {
             pets = res;
@@ -112,7 +112,7 @@ const getOnepet = (_id) => {
             'Content-Type': 'application/json'
         }
     }
-    fetch('http://localhost:3000/pet/' + _id, options)
+    fetch('/pet/' + _id, options)
     .then(res => res.json())
     .then(pet => {
        let content = "";

@@ -18,7 +18,7 @@ const toAdoptUpdate = (id, petname, age, animalClass, animalType, description) =
         }
     }
 
-    fetch('http://localhost:3000/pet/' + id, options)
+    fetch('/pet/' + id, options)
         .then(res => res.json())
         .catch((err) => {
             console.log(err);
@@ -49,7 +49,7 @@ const adoptedUpdatepet = (id, petname, age, animalClass, animalType, description
         }
     }
 
-    fetch('http://localhost:3000/pet/' + id, options)
+    fetch('/pet/' + id, options)
         .then(res => res.json())
         .then(res => {
            console.log(res);
@@ -86,7 +86,7 @@ const ownerUpdate = (id) => {
             }
         }
     
-        fetch('http://localhost:3000/pet/' + id, options)
+        fetch('/pet/' + id, options)
             .then(res => res.json())
             .then(res => {
                 console.log(res);
