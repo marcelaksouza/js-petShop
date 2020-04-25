@@ -4,9 +4,9 @@ const express = require('express');
 const router = express.Router();
 const petController = require('../service/petController');
 require('../shared/db');
-
+const path = require('path');
 router.get('/',function(req,res) {
-    res.sendFile('../../frontend/index.html');
+    res.sendFile(path.join(__dirname, '../../frontend', 'index.html'));
   });
 
 router
